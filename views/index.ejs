@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="/images/Screenshot 2024-12-24 164651.png">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <% if(error.length > 0) { %>
+        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 p-3 rounded-md bg-red-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= error %>
+            </span>
+        </div>
+    <% } %>
+
+    <div class="bg-white shadow-md rounded-lg flex flex-col lg:flex-row w-11/12 lg:w-3/5 shadow-2xl">
+        <!-- Sign Up Form -->
+        <div class="bg-gradient-to-r from-pink-500 to-red-500 text-white p-6 lg:p-8 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none w-full lg:w-1/2">
+            <h2 class="text-xl lg:text-2xl font-bold mb-4">Welcome to <span class="text-black">COMFY.</span> <br>Create an Account</h2>
+            <form action="/users/register" method="post">
+                <div class="mb-4">
+                    <label for="fullname" class="block text-sm font-medium">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" class="mt-1 p-2 w-full border-b-2 border-gray-300 focus:outline-none focus:border-white bg-gradient-to-r from-pink-500 to-red-500">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border-b-2 border-gray-300 focus:outline-none focus:border-white bg-gradient-to-r from-pink-500 to-red-500">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium">Password</label>
+                    <input type="password" id="password" name="password" class="mt-1 p-2 w-full border-b-2 border-gray-300 focus:outline-none focus:border-white bg-gradient-to-r from-pink-500 to-red-500">
+                </div>
+                <button type="submit" class="bg-white text-pink-500 font-bold py-2 px-4 rounded-md w-full">SIGN UP</button>
+            </form>
+        </div>
+        <!-- Login Form -->
+        <div class="p-6 lg:p-8 w-full lg:w-1/2">
+            <h2 class="text-xl lg:text-2xl font-bold mb-4">Welcome Back!</h2>
+            <p class="mb-6">Please sign in now</p>
+            <form action="/users/login" method="post">
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium">Username</label>
+                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border-b-2 border-gray-300 focus:outline-none focus:border-pink-500">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium">Password</label>
+                    <input type="password" id="password" name="password" class="mt-1 p-2 w-full border-b-2 border-gray-300 focus:outline-none focus:border-pink-500">
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input type="checkbox" id="remember" class="mr-2">
+                    <label for="remember" class="text-sm">Remember me</label>
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-2 px-4 rounded-md w-full hover:bg-gradient-to-r from-red-500 to-pink-500">LOG IN</button>
+                <a href="/owners/admin/login" class="text-sm text-pink-500 mt-4 inline-block">Login as Admin</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

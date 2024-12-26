@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/images/Screenshot 2024-12-24 164651.png">
+</head>
+<body class="bg-gray-100 p-6">
+
+    <header class="flex flex-wrap justify-between items-center p-6 w-full max-w-7xl mx-auto"  >
+        <div class="text-3xl font-bold text"><span class="text-blue-300">COMFY.[Admin]</span> </div>
+        <nav class="space-x-4 mt-4 sm:mt-0">
+            <a href="/owners/admin" class="text-black-700 hover:text-gray-900 hover:underline ">Creat Product</a>
+            <a href="/owners/admin/orders" class="text-black-700 hover:text-gray-900 hover:underline ">Orders</a>
+            <a href="/users/logout" class="text-red-700 hover:text-gray-900 ">Logout</a>
+        </nav>
+        
+    </header>
+    
+    <% if(orders.length == 0 ){ %>
+          <h1 class="text-6xl my-44 mx-auto text-center">No Orders.....</h1>
+    <%} %>
+
+    <% orders.forEach(function(order){ %>
+
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md mb-10 mt-10">
+        <!-- Order Header -->
+        <div class="flex flex-wrap justify-between items-center border-b pb-4 mb-4">
+            <h1 class="text-xl font-semibold">Name: <span class="text-gray-700"><%= order.userId.fullname %></span></h1>
+            <h1 class="text-xl font-semibold">Email: <span class="text-gray-700"><%= order.userId.email %></span></h1>
+        </div>
+
+        <!-- Order Info -->
+        <div class="mb-6">
+            <p class="text-sm text-gray-500">Order date: <span class="font-medium text-gray-700"><%= order.orderDate %></span></p>
+        </div>
+
+        <!-- Items List -->
+        <div class="space-y-6 mb-8">
+            <% order.products.forEach(function(product){ %>
+            <!-- Item 1 -->
+            <div class="flex items-center space-x-4">
+                <img src="data:image/jpeg;base64,<%= product.type.image.toString('base64') %>" alt="Product" class="w-20 h-20 rounded-lg">
+                <div class="flex-1">
+                    <h2 class="text-lg font-semibold"><%= product.type.name %></h2>
+                </div>
+                <p class="text-lg font-semibold text-gray-800">Rs.<%= (product.type.price)-(product.type.discount) %>/-</p>
+            </div>
+            <%  }) %>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="max-w-4xl mx-auto mt-10 ">
+            <h3 class="text-lg font-semibold mb-4">Order Summary</h3>
+            <div class="space-y-2">
+                <div class="flex justify-between">
+                    <p class="text-gray-700">Subtotal</p>
+                    <p class="text-gray-800">Rs.<%= order.subtotal%>/-</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-gray-700">Delivery <span class="text-sm text-gray-500">ⓘ</span></p>
+                    <p class="text-gray-800">Rs.50/-</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="flex justify-between">
+                <p class="text-lg font-semibold">Total</p>
+                <p class="text-lg font-semibold text-gray-800">Rs.<%= order.subtotal + 50 %>/-</p>
+            </div>
+        </div>
+    </div>
+    <%  }) %>
+
+    <%- include('./partials/footer') %>
+
+</body>
+</html>

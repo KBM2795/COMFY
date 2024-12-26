@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMFY - Wood & Cloth Sofa</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="/images/Screenshot 2024-12-24 164651.png">
+</head>
+<body class="bg-blue-50">
+    <!-- Header -->
+    <header class="flex flex-wrap items-center justify-between p-6 w-full max-w-7xl mx-auto">
+        <div class="text-3xl font-bold">Welcome To <span class="text-blue-300">COMFY.</span></div>
+        <nav class="mt-4 lg:mt-0 space-x-6">
+            <a href="/home" class="text-gray-700 hover:text-gray-900 hover:underline">Home</a>
+            <a href="/shop" class="text-gray-700 hover:text-gray-900 hover:underline">Shop</a>
+            <a href="/cart" class="text-gray-700 hover:text-gray-900 hover:underline">Cart</a>
+            <a href="/orders" class="text-gray-700 hover:text-gray-900 hover:underline">Orders</a>
+            <a href="/users/logout" class="text-red-700 hover:text-gray-900">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex flex-wrap items-center justify-center min-h-screen p-6 max-w-7xl mx-auto gap-10 lg:flex-nowrap">
+        <!-- Text Section -->
+        <div class="w-full lg:w-1/2">
+            <h1 class="text-4xl lg:text-6xl font-bold text-gray-900">Your Home, Your Style</h1>
+            <p class="mt-4 text-gray-600 text-lg lg:text-xl">
+                Transform your home into a haven of style and comfort with our customizable wood and cloth furniture. 
+                Choose from a variety of designs and finishes to create a space that reflects your unique taste.
+            </p>
+            <button 
+                class="mt-6 px-6 py-3 bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold rounded-full hover:bg-gradient-to-r from-red-500 to-pink-500" 
+                onclick="location.href='/shop'">
+                BUY NOW
+            </button>
+        </div>
+
+        <!-- Image Section -->
+        <div class="w-full lg:w-1/2">
+            <img 
+                src="https://preview.colorlib.com/theme/aranoz/img/banner_img.png.webp" 
+                alt="Blue Sofa" 
+                class="w-full rounded-lg shadow-lg">
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+</body>
+</html>
