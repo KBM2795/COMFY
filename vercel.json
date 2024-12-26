@@ -12,8 +12,4 @@
       "dest": "app.js"
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "ignoreCommand": "git check-ignore -v"
 }
