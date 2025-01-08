@@ -5,7 +5,7 @@ const dbgr = require("debug")("development:moongose");
 
 
 mongoose
-.connect(`mongodb+srv://koshikmehta2795:koshikmehta%402795@koshik-projects.x41ns.mongodb.net/COMFY`)
+.connect(``)
 .then(function(){
     dbgr("Connected");
 })
